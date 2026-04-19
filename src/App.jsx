@@ -14,6 +14,7 @@ import SettingsPanel from './components/SettingsPanel'
 import LogPrompt from './components/LogPrompt'
 import DayScore from './components/DayScore'
 import CalendarView from './components/CalendarView'
+import LearnView from './components/LearnView'
 
 const DEFAULT_PERIODS = [
   { id: 'wake',           label: 'Wake Time',     time: '06:00', color: '#f59e0b',
@@ -199,11 +200,17 @@ export default function App() {
           >
             Calendar
           </button>
+          <button
+            className={`toggle-btn${view === 'learn' ? ' toggle-btn--active' : ''}`}
+            onClick={() => setView('learn')}
+          >
+            Learn
+          </button>
         </div>
       </header>
 
       <main className="app-main">
-        {view !== 'calendar' && currentPeriod && (
+        {view !== 'calendar' && view !== 'learn' && currentPeriod && (
           <button
             type="button"
             className="current-period-badge"
@@ -217,7 +224,7 @@ export default function App() {
           </button>
         )}
 
-        {view !== 'calendar' && <DayScore result={todayScore} />}
+        {view !== 'calendar' && view !== 'learn' && <DayScore result={todayScore} />}
 
         {view === 'analog' && (
           <AnalogClock
@@ -241,8 +248,9 @@ export default function App() {
             now={now}
           />
         )}
+        {view === 'learn' && <LearnView />}
 
-        {view !== 'calendar' && (
+        {view !== 'calendar' && view !== 'learn' && (
           <PeriodLegend
             periods={sortedPeriods}
             currentPeriodId={currentPeriod?.id}

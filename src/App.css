@@ -1171,6 +1171,115 @@ button.legend-item.legend-item--active:hover {
   font-family: var(--mono);
 }
 
+/* === LEARN VIEW === */
+.learn-view {
+  width: 100%;
+  max-width: 720px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.learn-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.learn-title {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  color: var(--text-h);
+  margin: 0;
+}
+
+.learn-subtitle {
+  font-size: 13px;
+  color: var(--text);
+  margin: 0;
+}
+
+.learn-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.learn-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.15s;
+}
+
+.learn-card:hover {
+  border-color: color-mix(in srgb, var(--topic-color) 40%, var(--border));
+}
+
+.learn-card-accent {
+  height: 3px;
+  background: var(--topic-color);
+  opacity: 0.85;
+  flex-shrink: 0;
+}
+
+.learn-card-body {
+  padding: 16px 18px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.learn-card-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--topic-color);
+  box-shadow: 0 0 8px color-mix(in srgb, var(--topic-color) 60%, transparent);
+  flex-shrink: 0;
+}
+
+.learn-card-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-h);
+  margin: 0;
+  letter-spacing: -0.1px;
+  line-height: 1.3;
+}
+
+.learn-card-summary {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text);
+  margin: 0;
+  flex: 1;
+}
+
+.learn-card-link {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--topic-color);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  opacity: 0.85;
+  transition: opacity 0.15s;
+  margin-top: 2px;
+}
+
+.learn-card-link:hover {
+  opacity: 1;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 /* === RESPONSIVE === */
 @media (max-width: 600px) {
   .app-header { padding: 14px 20px; }
@@ -1187,4 +1296,5 @@ button.legend-item.legend-item--active:hover {
   .calendar-detail-row { grid-template-columns: 10px 1fr auto; }
   .calendar-detail-time { display: none; }
   .day-score-num { font-size: 30px; }
+  .learn-grid { grid-template-columns: 1fr; }
 }
